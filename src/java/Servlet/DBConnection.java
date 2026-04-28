@@ -13,9 +13,9 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/watch_shop?useSSL=false&serverTimezone=UTC",
-                "root",
-                "admin"
+            "jdbc:mysql://nozomi.proxy.rlwy.net:57652/railway",
+            "root",
+            "sPOHXwbwxaCmHCKSwYnfBoDPtldsEAKG"
             );
 
             System.out.println("Database Connected Successfully");
