@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Watch | TimeCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<div class="center-page">
+    <div class="card card-padding">
+        <h2>Add New Watch</h2>
+
+        <form action="add-watch" method="post">
+
+            <input type="text" name="name" placeholder="Watch Name" required style = 'width : 100%;'>
+
+            <input type="number" name="price" placeholder="Price" required style = 'width : 100%;'>
+
+            <!-- ✅ SIMPLE IMAGE NAME -->
+            <input type="text" name="image" placeholder="Image name (ex: rolex.jpg)" required style = 'width : 100%;'>
+
+            <textarea name="description" placeholder="Description"
+                style="width:100%;padding:12px;border-radius:8px;background:#1c1c1c;color:white;border:none; "
+                required></textarea>
+
+            <br><br>
+            <button class="btn-gold">Add Watch</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

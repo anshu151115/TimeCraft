@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment | TimeCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="payment-page">
+    <div class="payment-card">
+        <h2>Select Payment Method</h2>
+
+        <form action="checkout" method="post">
+
+            <label class="payment-option">
+                <span class="pay-text">Cash on Delivery</span>
+                <input type="radio" name="payment" value="COD" required>
+            </label>
+
+            <label class="payment-option">
+                <span class="pay-text">UPI</span>
+                <input type="radio" name="payment" value="UPI">
+            </label>
+
+            <label class="payment-option">
+                <span class="pay-text">Debit / Credit Card</span>
+                <input type="radio" name="payment" value="Card">
+            </label>
+
+            <button class="btn-gold">Pay & Place Order</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
