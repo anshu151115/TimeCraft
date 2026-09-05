@@ -3,6 +3,7 @@ using TimeCraft.Repositories.Interfaces;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using TimeCraft.Services;
 
 namespace TimeCraft.Controllers
 {
@@ -11,11 +12,13 @@ namespace TimeCraft.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IEmailService _emailService;
 
         public OrderController(
-            IOrderRepository orderRepository)
+            IOrderRepository orderRepository, IEmailService emailService)
         {
             _orderRepository = orderRepository;
+            _emailService = emailService;
         }
 
 
@@ -35,6 +38,27 @@ namespace TimeCraft.Controllers
                         request.ShippingState,
                         request.ShippingPincode
                     );
+                if (order.OrderItems != null &&
+                    order.OrderItems.Count > 0 &&
+                    order.User != null)
+                {
+                    var firstItem = order.OrderItems[0];
+
+                    try
+                    {
+                        await _emailService.SendPaymentSuccessEmail(
+                            order.User.Email,
+                            order.Id,
+                            order.TotalAmount,
+                            order.OrderItems
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(
+                            $"Email sending failed: {ex.Message}");
+                    }
+                }
 
                 return Ok(new
                 {

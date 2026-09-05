@@ -114,7 +114,13 @@ namespace TimeCraft.Repositories
 
                 await transaction.CommitAsync();
 
-                return order;
+                var createdOrder = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Product)
+                .FirstAsync(o => o.Id == order.Id);
+
+                return createdOrder;
             }
             catch
             {
@@ -158,6 +164,9 @@ namespace TimeCraft.Repositories
     string status)
         {
             var order = await _context.Orders
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
                 .FirstOrDefaultAsync(x => x.Id == orderId);
 
             if (order == null)
