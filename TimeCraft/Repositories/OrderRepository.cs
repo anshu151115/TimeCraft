@@ -152,5 +152,24 @@ namespace TimeCraft.Repositories
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
         }
+
+        public async Task<bool> UpdateOrderStatus(
+    int orderId,
+    string status)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if (order == null)
+            {
+                return false;
+            }
+
+            order.Status = status;
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

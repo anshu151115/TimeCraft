@@ -18,5 +18,9 @@ namespace TimeCraft.Repositories.Interfaces
         Task<List<Order>> GetOrdersByUser(int userId);
 
         Task<List<Order>> GetAllOrders();
+
+        Task<bool> UpdateOrderStatus(
+            int orderId,
+            string status);
     }
 }
