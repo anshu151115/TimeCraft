@@ -37,13 +37,13 @@ namespace TimeCraft.Services
             return "Signup successful";
         }
 
-        public async Task<(bool Success, string Role, string Message)> Login(LoginDto dto)
+        public async Task<(bool Success, int UserId, string Role, string Message)> Login(LoginDto dto)
         {
             var user = await _userRepository.GetByEmail(dto.Email);
 
             if (user == null)
             {
-                return (false, "", "Invalid email or password");
+                return (false, 0,"", "Invalid email or password");
             }
 
             bool passwordValid = BCrypt.Net.BCrypt.Verify(
@@ -53,10 +53,10 @@ namespace TimeCraft.Services
 
             if (!passwordValid)
             {
-                return (false, "", "Invalid email or password");
+                return (false,0, "", "Invalid email or password");
             }
 
-            return (true, user.Role, "Login successful");
+            return (true, user.Id, user.Role, "Login successful");
         }
     }
 }

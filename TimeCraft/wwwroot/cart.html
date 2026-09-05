@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TimeCraft - Cart</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Common Header -->
+    <div id="header-container"></div>
+
+
+    <main class="cart-page">
+
+        <section class="cart-heading">
+
+            <p class="page-label">
+                TIMECRAFT
+            </p>
+
+            <h1>Your Cart</h1>
+
+            <p>
+                Review your selected watches before checkout.
+            </p>
+
+        </section>
+
+
+        <div class="cart-layout">
+
+            <!-- Cart Items -->
+
+            <section id="cartItems"
+                     class="cart-items">
+            </section>
+
+
+            <!-- Cart Summary -->
+
+            <aside class="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+
+                    <span>Items</span>
+
+                    <span id="cartItemCount">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row total-row">
+
+                    <span>Total</span>
+
+                    <span id="cartTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <button class="checkout-button"
+                        onclick="checkout()">
+
+                    Proceed to Checkout
+
+                </button>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- Common Footer -->
+
+    <div id="footer-container"></div>
+
+
+    <script src="js/common-layout.js"></script>
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>

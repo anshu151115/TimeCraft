@@ -44,6 +44,7 @@ namespace TimeCraft.Controllers
             return Ok(new
             {
                 message = result.Message,
+                userId = result.UserId,
                 role = result.Role
             });
         }

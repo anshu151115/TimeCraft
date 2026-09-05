@@ -49,6 +49,7 @@
     }
 
     // Login successful
+    localStorage.setItem("userId", result.userId);
     localStorage.setItem("role", result.role);
     localStorage.setItem("isLoggedIn", "true");
 
