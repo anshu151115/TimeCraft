@@ -60,3 +60,632 @@
     text-align: left;
     margin: 2px 0 8px 5%;
 }
+
+/* =========================
+   TOP OFFER BAR
+========================= */
+
+.top-offer {
+    height: 28px;
+    background: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+
+/* =========================
+   MAIN HEADER
+========================= */
+
+.main-header {
+    height: 105px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    gap: 45px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* Logo */
+
+.logo-area {
+    min-width: 180px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #222;
+}
+
+    .logo-link span {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+
+/* Simple TimeCraft logo symbol */
+
+.logo-symbol {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    flex: 1;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: #fafafa;
+}
+
+    .search-box svg {
+        width: 22px;
+        height: 22px;
+        stroke: #222;
+        fill: none;
+        stroke-width: 1.8;
+    }
+
+    .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding-left: 12px;
+        font-size: 15px;
+    }
+
+
+/* =========================
+   HEADER ICONS
+========================= */
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.header-icon {
+    text-decoration: none;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+    .header-icon svg {
+        width: 27px;
+        height: 27px;
+        fill: none;
+        stroke: #222;
+        stroke-width: 1.5;
+    }
+
+    .header-icon:hover {
+        color: #8b6f47;
+    }
+
+        .header-icon:hover svg {
+            stroke: #8b6f47;
+        }
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.main-nav {
+    height: 62px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+    .main-nav a {
+        text-decoration: none;
+        color: #222;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+        .main-nav a:hover {
+            color: #8b6f47;
+        }
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.main-footer {
+    background: #222;
+    color: white;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 8%;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .footer-section h3 {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        margin: 0 0 10px;
+    }
+
+    .footer-section h4 {
+        margin: 0 0 10px;
+    }
+
+    .footer-section p {
+        color: #ccc;
+        max-width: 250px;
+    }
+
+    .footer-section a {
+        color: #ccc;
+        text-decoration: none;
+    }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}
+
+/* =========================
+   HOME HERO
+========================= */
+
+.home-hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient( rgba(248, 246, 241, 0.88), rgba(248, 246, 241, 0.88) );
+}
+
+
+.hero-content {
+    max-width: 750px;
+}
+
+
+.hero-label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #8b6f47;
+    margin-bottom: 20px;
+}
+
+
+.hero-content h1 {
+    font-family: Georgia, serif;
+    font-size: 64px;
+    font-weight: normal;
+    margin: 0 0 20px;
+    color: #222;
+}
+
+
+.hero-content p:not(.hero-label) {
+    font-size: 19px;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+
+.hero-button {
+    padding: 14px 34px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+
+    .hero-button:hover {
+        background: #8b6f47;
+    }
+
+/* =========================
+   PRODUCTS PAGE
+========================= */
+
+.products-page {
+    padding: 70px 6% 90px;
+    background: #f8f6f1;
+    min-height: 600px;
+}
+
+
+.products-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+
+    .products-heading h1 {
+        font-family: Georgia, serif;
+        font-size: 46px;
+        font-weight: normal;
+        margin: 10px 0 15px;
+    }
+
+
+    .products-heading p:not(.page-label) {
+        color: #666;
+        font-size: 17px;
+    }
+
+
+.page-label {
+    color: #8b6f47;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+
+/* Product Grid */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* Product Card */
+
+.product-card {
+    background: white;
+    border: 1px solid #e7e2d9;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+
+/* Image */
+
+.product-image-container {
+    height: 300px;
+    background: #f4f2ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.4s;
+}
+
+
+.product-card:hover .product-image {
+    transform: scale(1.04);
+}
+
+
+/* Details */
+
+.product-details {
+    padding: 22px;
+}
+
+
+.product-brand {
+    color: #8b6f47;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+
+.product-details h2 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 0 0 8px;
+}
+
+
+.product-category {
+    color: #777;
+    font-size: 13px;
+}
+
+
+.product-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 42px;
+}
+
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+
+.add-cart-button {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+
+    .add-cart-button:hover {
+        background: #8b6f47;
+    }
+
+
+/* Empty */
+
+.empty-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px;
+}
+
+/* =========================
+   ADMIN PRODUCTS
+========================= */
+
+.admin-products-page {
+    background: #f8f6f1;
+    min-height: 700px;
+    padding: 60px 7%;
+}
+
+
+.admin-products-header {
+    margin-bottom: 35px;
+}
+
+
+    .admin-products-header h1 {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        font-weight: normal;
+        margin: 8px 0;
+    }
+
+
+.product-form-card {
+    background: white;
+    padding: 35px;
+    border: 1px solid #e4ded4;
+    margin-bottom: 55px;
+}
+
+
+    .product-form-card h2 {
+        font-family: Georgia, serif;
+        font-weight: normal;
+        margin-top: 0;
+        font-size: 27px;
+    }
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+    .form-group label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        border: 1px solid #d8d2c8;
+        padding: 13px;
+        font-size: 14px;
+        outline: none;
+        background: white;
+        box-sizing: border-box;
+    }
+
+
+    .form-group textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #8b6f47;
+        }
+
+
+.full-width {
+    margin-top: 22px;
+}
+
+
+.primary-button {
+    margin-top: 25px;
+    padding: 13px 30px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+    .primary-button:hover {
+        background: #8b6f47;
+    }
+
+
+#productMessage {
+    margin-top: 15px;
+    color: #8b6f47;
+}
+
+
+/* Admin Product Cards */
+
+.admin-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+
+.admin-product-card {
+    background: white;
+    border: 1px solid #e4ded4;
+    overflow: hidden;
+}
+
+
+    .admin-product-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: contain;
+        background: #f4f2ed;
+    }
+
+
+.admin-product-info {
+    padding: 20px;
+}
+
+
+    .admin-product-info h3 {
+        font-family: Georgia, serif;
+        font-weight: normal;
+        margin: 5px 0;
+    }
+
+
+
+
+/* =========================
+   EDIT / DELETE BUTTON
+========================= */
+
+.admin-product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+.edit-button {
+    padding: 9px 18px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+    .edit-button:hover {
+        background: #8b6f47;
+    }
+
+
+.delete-button {
+    padding: 9px 18px;
+    background: #a33a2b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+    .delete-button:hover {
+        background: #84281e;
+    }

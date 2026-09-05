@@ -50,6 +50,7 @@
 
     // Login successful
     localStorage.setItem("role", result.role);
+    localStorage.setItem("isLoggedIn", "true");
 
     if (result.role === "Admin") {
         window.location.href = "admin-dashboard.html";
