@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TimeCraft - Payment Successful</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+
+
+    <main class="payment-success-page">
+
+        <div class="payment-success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <p class="page-label">
+                TIMECRAFT
+            </p>
+
+            <h1>
+                Payment Successful
+            </h1>
+
+            <p>
+                Thank you for your purchase.
+            </p>
+
+            <p id="orderInfo"></p>
+
+            <div class="payment-success-actions">
+
+                <button onclick="downloadPaymentSlip()">
+
+                    Download Payment Slip
+
+                </button>
+
+                <button onclick="window.location.href='user-dashboard.html'">
+
+                    View My Orders
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <div id="footer-container"></div>
+
+
+    <script src="js/common-layout.js"></script>
+
+    <script src="js/payment-success.js"></script>
+
+</body>
+
+</html>

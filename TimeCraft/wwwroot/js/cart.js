@@ -317,8 +317,6 @@ async function removeFromCart(cartItemId) {
 
 function checkout() {
 
-    alert(
-        "Checkout will be implemented in the next step."
-    );
+    window.location.href = "checkout.html";
 
 }
