@@ -22,6 +22,7 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Service
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddControllers();
 
