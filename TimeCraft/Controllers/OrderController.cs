@@ -196,6 +196,34 @@ namespace TimeCraft.Controllers
                 $"TimeCraft-Payment-Slip-TC{order.Id}.pdf"
             );
         }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateOrderStatus(
+           int id,
+           [FromBody] UpdateOrderStatusRequest request)
+        {
+            var result =
+                await _orderRepository.UpdateOrderStatus(
+                    id,
+                    request.Status
+                );
+
+            if (!result)
+            {
+                return NotFound(new
+                {
+                    message = "Order not found"
+                });
+            }
+
+            return Ok(new
+            {
+                message = "Order status updated successfully"
+            });
+        }
+
+
+
     }
 
 
@@ -214,5 +242,10 @@ namespace TimeCraft.Controllers
         public string ShippingState { get; set; }
 
         public string ShippingPincode { get; set; }
+    }
+
+    public class UpdateOrderStatusRequest
+    {
+        public string Status { get; set; }
     }
 }
