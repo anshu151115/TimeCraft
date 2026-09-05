@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="C:\Users\Lenovo\Pictures\Screenshots\img1.png" Link="wwwroot\images\products\img1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\admin-dashboard.html" />
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\js\login.js" />
@@ -24,6 +28,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
 </Project>
