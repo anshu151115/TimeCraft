@@ -14,9 +14,9 @@ namespace TimeCraft.Services
             _productRepository = productRepository;
         }
 
-        public async Task<List<Product>> GetAllProducts()
+        public async Task<List<Product>> GetAllProducts(string search)
         {
-            return await _productRepository.GetAllProducts();
+            return await _productRepository.GetAllProducts(search);
         }
 
         public async Task<Product> GetProductById(int id)

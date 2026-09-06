@@ -19,11 +19,11 @@ namespace TimeCraft.Controllers
             _environment = environment;
         }
 
-        // Get all products
+        // Get all products or search products
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProducts(string search = "")
         {
-            var products = await _productService.GetAllProducts();
+            var products = await _productService.GetAllProducts(search);
 
             return Ok(products);
         }

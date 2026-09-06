@@ -1,11 +1,12 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
 
     loadProducts();
+    setupSearch();
 
 });
 
 
-async function loadProducts() {
+async function loadProducts(search = "") {
 
     const container =
         document.getElementById("productsContainer");
@@ -14,7 +15,7 @@ async function loadProducts() {
     try {
 
         const response = await fetch(
-            "https://localhost:7126/api/product"
+            `https://localhost:7126/api/product?search=${encodeURIComponent(search)}`
         );
 
 
@@ -164,6 +165,32 @@ async function loadProducts() {
 
 }
 
+function setupSearch() {
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key !== "Enter") {
+            return;
+        }
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        if (!searchInput) {
+            return;
+        }
+
+        const search =
+            searchInput.value.trim();
+
+        if (search === "") {
+            loadProducts();
+            return;
+        }
+
+        loadProducts(search);
+    });
+}
 
 async function addToCart(productId) {
 
