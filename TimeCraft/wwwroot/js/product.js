@@ -69,6 +69,7 @@ async function loadProducts(search = "") {
 
 
             let cartButton = "";
+            let wishlistButton = "";
 
 
             // Only User can add product to cart
@@ -83,6 +84,14 @@ async function loadProducts(search = "") {
 
             </button>
         `;
+
+                wishlistButton = `
+            <button
+                class="wishlist-button"
+                onclick="addToWishlist(${product.id})">
+                ♡
+            </button>
+       `;
             }
             else if (!isLoggedIn) {
 
@@ -141,7 +150,14 @@ async function loadProducts(search = "") {
                     ₹${product.price}
                 </span>
 
-                ${cartButton}
+                <div class="product-actions">
+
+                    ${wishlistButton}
+
+                    ${cartButton}
+
+                </div>
+
 
             </div>
 
@@ -246,5 +262,67 @@ async function addToCart(productId) {
             "Unable to add watch to cart."
         );
 
+    }
+}
+
+
+async function addToWishlist(productId) {
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+    const role =
+        localStorage.getItem("role");
+
+    const userId =
+        localStorage.getItem("userId");
+
+    if (!isLoggedIn || role !== "User" || !userId) {
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "https://localhost:7126/api/wishlist",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    userId: parseInt(userId),
+                    productId: productId
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (response.ok) {
+
+            alert("Watch added to wishlist!");
+
+        }
+        else {
+
+            alert(
+                result.message ||
+                "Unable to add watch to wishlist."
+            );
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
     }
 }
