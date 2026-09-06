@@ -1,35 +1,300 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>TimeCraft - Contact</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
 </head>
 
 <body>
 
-    <!-- Common Header -->
     <div id="header-container"></div>
 
 
-    <!-- Contact Page Content -->
-    <main class="page">
+    <!-- CONTACT HERO -->
 
-        <h1>Contact Us</h1>
+    <section class="contact-hero">
 
-        <p>Email: support@timecraft.com</p>
+        <div class="contact-hero-content">
 
-        <p>We would love to hear from you.</p>
+            <p class="contact-label">
+                TIMECRAFT
+            </p>
 
-    </main>
+            <h1>
+                Let's Talk
+                <br>
+                About Time.
+            </h1>
+
+            <p>
+                Have a question about our watches, your order,
+                or anything else? We'd love to hear from you.
+            </p>
+
+        </div>
+
+    </section>
 
 
-    <!-- Common Footer -->
+    <!-- CONTACT MAIN -->
+
+    <section class="contact-section">
+
+        <div class="contact-info">
+
+            <p class="contact-small-title">
+                GET IN TOUCH
+            </p>
+
+            <h2>
+                We'd Love to
+                <br>
+                Hear From You.
+            </h2>
+
+            <p class="contact-description">
+                Whether you need help choosing the perfect
+                watch or have a question about your order,
+                our team is here to help.
+            </p>
+
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+
+                    <span class="contact-icon">
+                        ✉
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Email
+                        </h3>
+
+                        <p>
+                            support@timecraft.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span class="contact-icon">
+                        ☎
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Phone
+                        </h3>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span class="contact-icon">
+                        ⌖
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Store
+                        </h3>
+
+                        <p>
+                            Ahmedabad, Gujarat, India
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span class="contact-icon">
+                        ◷
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Working Hours
+                        </h3>
+
+                        <p>
+                            Monday - Saturday
+                            <br>
+                            10:00 AM - 7:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form-container">
+
+            <div class="contact-form-card">
+
+                <p class="contact-small-title">
+                    SEND A MESSAGE
+                </p>
+
+                <h2>
+                    How Can We Help?
+                </h2>
+
+                <form id="contactForm">
+
+                    <div class="contact-form-row">
+
+                        <div class="contact-field">
+
+                            <label>
+                                Your Name
+                            </label>
+
+                            <input type="text"
+                                   placeholder="Enter your name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="contact-field">
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <input type="email"
+                                   placeholder="Enter your email"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-field">
+
+                        <label>
+                            Subject
+                        </label>
+
+                        <input type="text"
+                               placeholder="What can we help with?"
+                               required>
+
+                    </div>
+
+
+                    <div class="contact-field">
+
+                        <label>
+                            Message
+                        </label>
+
+                        <textarea rows="6"
+                                  placeholder="Write your message..."
+                                  required></textarea>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="contact-submit">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMAGE / CTA -->
+
+    <section class="contact-bottom">
+
+        <div class="contact-bottom-content">
+
+            <p>
+                FIND YOUR PERFECT TIMEPIECE
+            </p>
+
+            <h2>
+                Your Next Watch
+                <br>
+                Is Waiting.
+            </h2>
+
+            <a href="product.html">
+                Explore Watches
+            </a>
+
+        </div>
+
+    </section>
+
+
     <div id="footer-container"></div>
 
-
-    <!-- Common Layout -->
     <script src="js/common-layout.js"></script>
+
+    <script>
+
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Thank you for contacting TimeCraft. We will get back to you soon."
+                );
+
+                this.reset();
+
+            });
+
+    </script>
 
 </body>
 

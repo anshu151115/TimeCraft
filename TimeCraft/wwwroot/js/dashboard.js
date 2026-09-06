@@ -8,11 +8,11 @@ if (isLoggedIn !== "true") {
 }
 
 if (currentPage.includes("admin-dashboard") && role !== "Admin") {
-    window.location.href = "user-dashboard.html";
+    window.location.href = "home.html";
 }
 
 if (currentPage.includes("user-dashboard") && role !== "User") {
-    window.location.href = "admin-dashboard.html";
+    window.location.href = "home.html";
 }
 
 

@@ -11,13 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\admin-dashboard.html" />
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\js\login.js" />
     <None Include="wwwroot\js\signup.js" />
     <None Include="wwwroot\login.html" />
     <None Include="wwwroot\signup.html" />
-    <None Include="wwwroot\user-dashboard.html" />
   </ItemGroup>
 
   <ItemGroup>

@@ -66,14 +66,7 @@
 
         // Account goes to correct dashboard
         if (accountLink) {
-
-            if (role === "Admin") {
-                accountLink.href = "admin-dashboard.html";
-            }
-            else {
-                accountLink.href = "user-dashboard.html";
-            }
-
+            accountLink.href = "my-account.html";
         }
 
     }
