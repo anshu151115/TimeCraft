@@ -6,5 +6,8 @@ namespace TimeCraft.Repositories.Interfaces
     {
         Task<User> GetByEmail(string email);
         Task AddUser(User user);
+        Task<User> GetById(int id);
+
+        Task<bool> UpdateUser(User user);
     }
 }

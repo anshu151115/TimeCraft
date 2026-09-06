@@ -58,5 +58,70 @@ namespace TimeCraft.Services
 
             return (true, user.Id, user.Role, "Login successful");
         }
+
+
+        public async Task<User> GetUserById(int id)
+        {
+            return await _userRepository.GetById(id);
+        }
+
+        public async Task<string> UpdateProfile(
+            int userId,
+            string name,
+            string email)
+        {
+            var user = await _userRepository.GetById(userId);
+
+            if (user == null)
+            {
+                return "User not found";
+            }
+
+            var existingUser =
+                await _userRepository.GetByEmail(email);
+
+            if (existingUser != null &&
+                existingUser.Id != userId)
+            {
+                return "Email already exists";
+            }
+
+            user.Name = name;
+            user.Email = email;
+
+            await _userRepository.UpdateUser(user);
+
+            return "Profile updated successfully";
+        }
+
+        public async Task<string> ChangePassword(
+            int userId,
+            string currentPassword,
+            string newPassword)
+        {
+            var user = await _userRepository.GetById(userId);
+
+            if (user == null)
+            {
+                return "User not found";
+            }
+
+            bool passwordValid =
+                BCrypt.Net.BCrypt.Verify(
+                    currentPassword,
+                    user.PasswordHash);
+
+            if (!passwordValid)
+            {
+                return "Current password is incorrect";
+            }
+
+            user.PasswordHash =
+                BCrypt.Net.BCrypt.HashPassword(newPassword);
+
+            await _userRepository.UpdateUser(user);
+
+            return "Password changed successfully";
+        }
     }
 }
