@@ -154,5 +154,89 @@ namespace TimeCraft.Services
 
             await smtp.DisconnectAsync(true);
         }
+
+
+        public async Task SendOrderStatusEmail(
+    string email,
+    int orderId,
+    string status)
+        {
+            var senderEmail =
+                _configuration["EmailSettings:Email"];
+
+            var appPassword =
+                _configuration["EmailSettings:AppPassword"];
+
+            var smtpServer =
+                _configuration["EmailSettings:SmtpServer"];
+
+            var port =
+                int.Parse(_configuration["EmailSettings:Port"]);
+
+            var message = new MimeMessage();
+
+            message.From.Add(
+                new MailboxAddress("TimeCraft", senderEmail));
+
+            message.To.Add(
+                new MailboxAddress("", email));
+
+            message.Subject =
+                $"TimeCraft - Order Status Update - TC{orderId}";
+
+            message.Body = new BodyBuilder
+            {
+                HtmlBody = $@"
+            <div style='font-family: Arial; padding: 20px; color: #333;'>
+
+                <h1 style='color: #333;'>TIMECRAFT</h1>
+
+                <h2>Order Status Update</h2>
+
+                <p>
+                    Your TimeCraft order has been updated.
+                </p>
+
+                <hr>
+
+                <p>
+                    <strong>Order ID:</strong> TC{orderId}
+                </p>
+
+                <p>
+                    <strong>Current Status:</strong> {status}
+                </p>
+
+                <hr>
+
+                <p>
+                    You can check your latest order status
+                    from your TimeCraft account.
+                </p>
+
+                <p>
+                    Thank you for shopping with TimeCraft.
+                </p>
+
+            </div>"
+            }.ToMessageBody();
+
+            using var smtp = new SmtpClient();
+
+            await smtp.ConnectAsync(
+                smtpServer,
+                port,
+                SecureSocketOptions.StartTls);
+
+            await smtp.AuthenticateAsync(
+                senderEmail,
+                appPassword);
+
+            await smtp.SendAsync(message);
+
+            await smtp.DisconnectAsync(true);
+        }
     }
+
+
 }

@@ -4,7 +4,7 @@ namespace TimeCraft.Repositories.Interfaces
 {
     public interface IProductRepository
     {
-        Task<List<Product>> GetAllProducts();
+        Task<List<Product>> GetAllProducts(string search);
 
         Task<Product> GetProductById(int id);
 

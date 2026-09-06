@@ -9,5 +9,10 @@ namespace TimeCraft.Services
             int orderId,
             decimal amount,
             List<OrderItem> orderItems);
+
+        Task SendOrderStatusEmail(
+           string email,
+           int orderId,
+           string status);
     }
 }

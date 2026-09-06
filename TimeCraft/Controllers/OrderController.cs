@@ -223,8 +223,8 @@ namespace TimeCraft.Controllers
 
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateOrderStatus(
-           int id,
-           [FromBody] UpdateOrderStatusRequest request)
+     int id,
+     [FromBody] UpdateOrderStatusRequest request)
         {
             var result =
                 await _orderRepository.UpdateOrderStatus(
@@ -240,14 +240,34 @@ namespace TimeCraft.Controllers
                 });
             }
 
+            // Get updated order with user information
+            var order =
+                await _orderRepository.GetOrderById(id);
+
+            if (order != null &&
+                order.User != null &&
+                !string.IsNullOrEmpty(order.User.Email))
+            {
+                try
+                {
+                    await _emailService.SendOrderStatusEmail(
+                        order.User.Email,
+                        order.Id,
+                        order.Status
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(
+                        $"Order status email failed: {ex.Message}");
+                }
+            }
+
             return Ok(new
             {
                 message = "Order status updated successfully"
             });
         }
-
-
-
     }
 
 

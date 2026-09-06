@@ -14,9 +14,19 @@ namespace TimeCraft.Repositories
             _context = context;
         }
 
-        public async Task<List<Product>> GetAllProducts()
+        public async Task<List<Product>> GetAllProducts(string search)
         {
-            return await _context.Products
+            var query = _context.Products.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(x =>
+                    x.Name.Contains(search) ||
+                    x.Brand.Contains(search) ||
+                    x.Category.Contains(search));
+            }
+
+            return await query
                 .OrderByDescending(x => x.Id)
                 .ToListAsync();
         }
