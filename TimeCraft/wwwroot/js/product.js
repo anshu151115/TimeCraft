@@ -77,19 +77,27 @@ async function loadProducts(search = "") {
 
                 cartButton = `
             <button
-                class="add-cart-button"
-                onclick="addToCart(${product.id})">
-
-                Add to Cart
-
+                class="add-cart-icon"
+                onclick="addToCart(${product.id})"
+                aria-label="Add to Cart">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 4h2l2 13h11l2-9H6"></path>
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="17" cy="21" r="1"></circle>
+                </svg>
             </button>
         `;
 
                 wishlistButton = `
             <button
                 class="wishlist-button"
-                onclick="addToWishlist(${product.id})">
-                ♡
+                onclick="addToWishlist(this, ${product.id})"
+                aria-label="Add to Wishlist">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20.8 8.7c0 5.5-8.8 10.3-8.8 10.3S3.2 14.2 3.2 8.7
+                         C3.2 5.5 6.8 3.5 9.4 5.6L12 8l2.6-2.4
+                         C17.2 3.5 20.8 5.5 20.8 8.7z"></path>
+                </svg>
             </button>
        `;
             }
@@ -266,7 +274,19 @@ async function addToCart(productId) {
 }
 
 
-async function addToWishlist(productId) {
+async function addToWishlist(buttonOrId, maybeId) {
+
+    // Normalize parameters: support both (element, id) and (id)
+    let button = null;
+    let productId;
+
+    if (typeof buttonOrId === "object") {
+        button = buttonOrId;
+        productId = maybeId;
+    }
+    else {
+        productId = buttonOrId;
+    }
 
     const isLoggedIn =
         localStorage.getItem("isLoggedIn") === "true";
@@ -285,36 +305,27 @@ async function addToWishlist(productId) {
     }
 
     try {
-
-        const response = await fetch(
-            `${API_BASE_URL}/api/wishlist`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    userId: parseInt(userId),
-                    productId: productId
-                })
-            }
-        );
+        const response = await fetch(`${API_BASE_URL}/api/wishlist`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: parseInt(userId), productId: productId })
+        });
 
         const result = await response.json();
 
         if (response.ok) {
+
+            // Toggle active state on the button to reflect added wishlist
+            if (button) {
+                button.classList.add("active");
+            }
 
             alert("Watch added to wishlist!");
 
         }
         else {
 
-            alert(
-                result.message ||
-                "Unable to add watch to wishlist."
-            );
+            alert(result.message || "Unable to add watch to wishlist.");
 
         }
 
