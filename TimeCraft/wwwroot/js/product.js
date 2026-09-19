@@ -15,7 +15,7 @@ async function loadProducts(search = "") {
     try {
 
         const response = await fetch(
-            `https://localhost:7126/api/product?search=${encodeURIComponent(search)}`
+            `${API_BASE_URL}/api/product?search=${encodeURIComponent(search)}`
         );
 
 
@@ -230,7 +230,7 @@ async function addToCart(productId) {
 
 
     const response = await fetch(
-        "https://localhost:7126/api/cart",
+        `${API_BASE_URL}/api/cart`,
         {
             method: "POST",
 
@@ -287,7 +287,7 @@ async function addToWishlist(productId) {
     try {
 
         const response = await fetch(
-            "https://localhost:7126/api/wishlist",
+            `${API_BASE_URL}/api/wishlist`,
             {
                 method: "POST",
 

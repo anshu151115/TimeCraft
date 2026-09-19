@@ -69,7 +69,7 @@
 
 
         let url =
-            "https://localhost:7126/api/product";
+            `${API_BASE_URL}/api/product`;
 
         let method = "POST";
 
@@ -78,7 +78,7 @@
         if (editId) {
 
             url =
-                `https://localhost:7126/api/product/${editId}`;
+                `${API_BASE_URL}/api/product/${editId}`;
 
             method = "PUT";
 
@@ -141,7 +141,7 @@
 async function loadProducts() {
 
     const response = await fetch(
-        "https://localhost:7126/api/product"
+        `${API_BASE_URL}/api/product`
     );
 
     const products = await response.json();
@@ -222,7 +222,7 @@ async function loadProducts() {
 async function editProduct(id) {
 
     const response = await fetch(
-        `https://localhost:7126/api/product/${id}`
+        `${API_BASE_URL}/api/product/${id}`
     );
 
 
@@ -294,7 +294,7 @@ async function deleteProduct(id) {
 
 
     const response = await fetch(
-        `https://localhost:7126/api/product/${id}`,
+        `${API_BASE_URL}/api/product/${id}`,
         {
             method: "DELETE"
         }
