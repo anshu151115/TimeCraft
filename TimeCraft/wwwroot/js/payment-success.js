@@ -27,7 +27,7 @@ async function loadOrder() {
 
 
     const response = await fetch(
-        `https://localhost:7126/api/order/${orderId}`
+        `${API_BASE_URL}/api/order/${orderId}`
     );
 
 
@@ -64,5 +64,5 @@ function downloadPaymentSlip() {
 
 
     window.location.href =
-        `https://localhost:7126/api/order/${orderId}/payment-slip`;
+        `${API_BASE_URL}/api/order/${orderId}/payment-slip`;
 }

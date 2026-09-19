@@ -42,7 +42,7 @@ async function loadOrders() {
     try {
 
         const response = await fetch(
-            `https://localhost:7126/api/order/user/${userId}`
+            `${API_BASE_URL}/api/order/user/${userId}`
         );
 
 
@@ -316,6 +316,6 @@ function formatDate(dateString) {
 function downloadPaymentSlip(orderId) {
 
     window.location.href =
-        `https://localhost:7126/api/order/${orderId}/payment-slip`;
+        `${API_BASE_URL}/api/order/${orderId}/payment-slip`;
 
 }

@@ -30,7 +30,7 @@ async function loadCart() {
 
 
     const response = await fetch(
-        `https://localhost:7126/api/cart/${userId}`
+        `${API_BASE_URL}/api/cart/${userId}`
     );
 
 
@@ -242,7 +242,7 @@ async function changeQuantity(
 
 
     const response = await fetch(
-        `https://localhost:7126/api/cart/${cartItemId}`,
+        `${API_BASE_URL}/api/cart/${cartItemId}`,
         {
             method: "PUT",
 
@@ -292,7 +292,7 @@ async function removeFromCart(cartItemId) {
 
 
     const response = await fetch(
-        `https://localhost:7126/api/cart/${cartItemId}`,
+        `${API_BASE_URL}/api/cart/${cartItemId}`,
         {
             method: "DELETE"
         }
