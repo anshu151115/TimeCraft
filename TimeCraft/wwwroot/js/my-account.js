@@ -28,7 +28,7 @@ async function loadProfile() {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/auth/profile/${userId}`
+            `https://localhost:7126/api/auth/profile/${userId}`
         );
 
         if (!response.ok) {
@@ -74,7 +74,7 @@ async function updateProfile(event) {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/auth/profile/${userId}`,
+            `https://localhost:7126/api/auth/profile/${userId}`,
             {
                 method: "PUT",
 
@@ -149,7 +149,7 @@ async function changePassword(event) {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/auth/change-password/${userId}`,
+            `https://localhost:7126/api/auth/change-password/${userId}`,
             {
                 method: "PUT",
 

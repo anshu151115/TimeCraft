@@ -31,7 +31,7 @@ async function loadWishlist() {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/wishlist/${userId}`
+            `https://localhost:7126/api/wishlist/${userId}`
         );
 
 
@@ -177,7 +177,7 @@ async function removeFromWishlist(id) {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/wishlist/${id}`,
+            `https://localhost:7126/api/wishlist/${id}`,
             {
                 method: "DELETE"
             }
@@ -213,7 +213,7 @@ async function addWishlistToCart(productId) {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/cart`,
+            "https://localhost:7126/api/cart",
             {
                 method: "POST",
 

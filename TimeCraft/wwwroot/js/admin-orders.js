@@ -35,7 +35,7 @@ async function loadOrders() {
     try {
 
         const response = await fetch(
-            `${API_BASE_URL}/api/order`
+            "https://localhost:7126/api/order"
         );
 
 
@@ -362,7 +362,7 @@ async function updateOrderStatus(
     try {
 
         const response = await fetch(
-        `${API_BASE_URL}/api/order/${orderId}/status`,
+            `https://localhost:7126/api/order/${orderId}/status`,
             {
                 method: "PUT",
 
@@ -411,7 +411,7 @@ async function updateOrderStatus(
 function downloadPaymentSlip(orderId) {
 
     window.location.href =
-        `${API_BASE_URL}/api/order/${orderId}/payment-slip`;
+        `https://localhost:7126/api/order/${orderId}/payment-slip`;
 
 }
 

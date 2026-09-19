@@ -13,7 +13,7 @@
 
 
     const response = await fetch(
-        `${API_BASE_URL}/api/auth/login`,
+        "https://localhost:7126/api/auth/login",
         {
             method: "POST",
 
