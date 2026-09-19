@@ -28,7 +28,7 @@ async function loadCheckout() {
     try {
 
         const response = await fetch(
-            `https://localhost:7126/api/cart/${userId}`
+            `${API_BASE_URL}/api/cart/${userId}`
         );
 
         if (!response.ok) {
@@ -168,7 +168,7 @@ async function placeOrder() {
     try {
 
         const response = await fetch(
-            "https://localhost:7126/api/order",
+            `${API_BASE_URL}/api/order`,
             {
                 method: "POST",
 
